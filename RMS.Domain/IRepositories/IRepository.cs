@@ -15,8 +15,12 @@ namespace RMS.Domain.IRepositories
         public void Update(TEntity entity);
 
         public void Delete(TEntity entity);
-        public IQueryable<TEntity> Retrive(Expression<Func<TEntity, bool>>? filter = null, Expression<Func<TEntity, object>>[]? includeProps = null, bool tracked = true);
-        public TEntity? RetriveItem(Expression<Func<TEntity, bool>>? filter = null, Expression<Func<TEntity, object>>[]? includeProps = null, bool trancked = true);
+        public IQueryable<TEntity>? Get(Expression<Func<TEntity, bool>>? filter = null, Expression<Func<TEntity, object>>[]? includeProps = null, bool tracked = true);
+
+        public TEntity? GetItem(Expression<Func<TEntity, bool>>? filter = null, Expression<Func<TEntity, object>>[]? includeProps = null, bool tracked = true);
+            public TEntity? GetById(TKey? id);
+
+
 
     }
 }

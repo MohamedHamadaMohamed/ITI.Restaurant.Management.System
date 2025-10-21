@@ -2,7 +2,7 @@ using System.Diagnostics;
 using ITI.RMS.Presentation.Layer.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ITI.RMS.Presentation.Layer.Controllers
+namespace RMS.Presentation.Layer.Areas.Customer.Controllers
 {
     public class HomeController : Controller
     {
