@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RMS.Presentation.Layer.Areas.Customer.Controllers
 {
+    [Area(nameof(Customer))]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

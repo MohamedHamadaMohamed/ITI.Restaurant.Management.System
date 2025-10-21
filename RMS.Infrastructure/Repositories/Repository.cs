@@ -25,22 +25,23 @@ namespace RMS.Infrastructure.Repositories
             _context.Remove(entity);
         }
 
-        public IQueryable<TEntity>? Get(Expression<Func<TEntity, bool>>? filter=null, Expression<Func<TEntity, object>>[]? includeProps = null, bool tracked = true)
-        {
-            IQueryable<TEntity> query = _dbSet;
 
-            if(filter != null)
+        public IQueryable<TEntity>? Get(Expression<Func<TEntity, bool>>? filter = null, Expression<Func<TEntity, object>>[]? includeProps = null, bool tracked = true)
+        {
+            IQueryable<TEntity> query = this._dbSet;
+
+            if (filter != null)
             {
-                query =  query.Where(filter);
+                query = query.Where(filter);
             }
-            if(includeProps != null)
+            if (includeProps != null)
             {
-                foreach(var include in includeProps)
+                foreach (var include in includeProps)
                 {
                     query = query.Include(include);
                 }
             }
-            if(!tracked)
+            if (!tracked)
             {
                 query = query.AsNoTracking();
             }
@@ -50,15 +51,14 @@ namespace RMS.Infrastructure.Repositories
 
         public TEntity? GetById(TKey? id)
         {
-            return this.GetItem(filter: e => e.Id != null && e.Id.Equals(id));
+            return this.GetItem(filter: e => e.Id != null && e.Id.Equals(id), tracked: true);
         }
 
-        public TEntity? GetItem(Expression<Func<TEntity, bool>>? filter=null, Expression<Func<TEntity, object>>[]? includeProps = null, bool tracked = true)
+        public TEntity? GetItem(Expression<Func<TEntity, bool>>? filter = null, Expression<Func<TEntity, object>>[]? includeProps = null, bool tracked = true)
         {
-            return Get(filter, includeProps,tracked)?.FirstOrDefault();
+            return this.Get(filter, includeProps, tracked)?.FirstOrDefault();
         }
 
-        
 
         public void Update(TEntity entity)
         {

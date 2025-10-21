@@ -7,7 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\" />
+    <Folder Include="UseCases\Generics\Commands\" />
+    <Folder Include="UseCases\Generics\Handlers\Commands\" />
+    <Folder Include="UseCases\ProductionUseCases\Category\Commands\" />
+    <Folder Include="UseCases\ProductionUseCases\Category\Handlers\Commands\" />
+    <Folder Include="UseCases\ProductionUseCases\Category\Handlers\Queries\" />
+    <Folder Include="UseCases\ProductionUseCases\Category\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RMS.Domain\RMS.Domain.csproj" />
   </ItemGroup>
 
 </Project>
