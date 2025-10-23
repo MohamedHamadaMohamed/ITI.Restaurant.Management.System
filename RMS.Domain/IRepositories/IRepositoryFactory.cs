@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RMS.Domain.IRepositories
 {
-    public interface IUnitOfWork
+    public interface IRepositoryFactory
     {
-        IRepository<TEntity, TKey> Repository<TEntity, TKey>() where TEntity : BaseEntity<TKey>;
-        public int Commit();
+        IRepository<TEntity, TKey> GetRepository<TEntity, TKey>()
+           where TEntity : BaseEntity<TKey>;
     }
 }
