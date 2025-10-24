@@ -7,8 +7,8 @@ namespace RMS.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork , IDisposable
     {
         private readonly ApplicationDbContext _Context;
-        private readonly RepositoryFactory _repositoryFactory;
-        public UnitOfWork(ApplicationDbContext Context, RepositoryFactory repositoryFactory)
+        private readonly IRepositoryFactory _repositoryFactory;
+        public UnitOfWork(ApplicationDbContext Context, IRepositoryFactory repositoryFactory)
         {
             _Context = Context;
             _repositoryFactory = repositoryFactory;
@@ -24,7 +24,7 @@ namespace RMS.Infrastructure.Repositories
             this._Context.Dispose();
         }
 
-        public IRepository<TEntity, TKey> Repository<TEntity, TKey>() where TEntity : BaseEntity<TKey>
+        public IRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : BaseEntity<TKey>
         {
             return _repositoryFactory.GetRepository<TEntity, TKey>();
         }

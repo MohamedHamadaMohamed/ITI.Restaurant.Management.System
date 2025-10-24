@@ -2,7 +2,7 @@
 
 namespace RMS.Applicaton.Layer.UseCases.Generics.Queries
 {
-    public class GetAllQuery<TEntity,TKey,TRepository,TEntityDto> : IRequest<ICollection<TEntityDto>>
+    public class GetAllQuery<TEntity,TKey,TEntityDto> : IRequest<ICollection<TEntityDto>>
     {
     }
 }

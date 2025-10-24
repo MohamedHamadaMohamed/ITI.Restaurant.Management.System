@@ -1,7 +1,13 @@
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using RMS.Applicaton.Layer.UseCases.Generics.Handlers.Queries;
+using RMS.Applicaton.Layer.UseCases.Generics.Queries;
+using RMS.Domain.IRepositories;
 using RMS.Infrastructure.Data.Context;
 using RMS.Infrastructure.Data.Identity;
+using RMS.Infrastructure.Repositories;
+using System.Reflection;
 
 namespace ITI.RMS.Presentation.Layer
 {
@@ -22,6 +28,20 @@ namespace ITI.RMS.Presentation.Layer
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
+            builder.Services.AddScoped<IRepositoryFactory, RepositoryFactory>();
+
+            builder.Services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssemblies(
+                    typeof(GetAllQueryHandler<,,>).Assembly,
+                    typeof(GetAllQuery<,,>).Assembly,
+                    Assembly.GetExecutingAssembly()
+                );
+            });
+
+
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\ProductionUseCases\Category\Commands\" />
-    <Folder Include="UseCases\ProductionUseCases\Category\Handlers\Commands\" />
-    <Folder Include="UseCases\ProductionUseCases\Category\Handlers\Queries\" />
-    <Folder Include="UseCases\ProductionUseCases\Category\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="MediatR" Version="13.0.0" />
   </ItemGroup>

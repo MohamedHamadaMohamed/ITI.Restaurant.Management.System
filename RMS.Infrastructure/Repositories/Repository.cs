@@ -15,14 +15,15 @@ namespace RMS.Infrastructure.Repositories
             _context = context;
             _dbSet = context.Set<TEntity>();
         }
-        public void Create(TEntity entity)
+        public TEntity Create(TEntity entity)
         {
             _context.Add(entity);
+            return entity;
         }
 
         public void Delete(TEntity entity)
         {
-            _context.Remove(entity);
+            _=  _context.Remove(entity);
         }
 
 
@@ -62,7 +63,7 @@ namespace RMS.Infrastructure.Repositories
 
         public void Update(TEntity entity)
         {
-            _context.Update(entity);
+            _= _context.Update(entity);
         }
 
         

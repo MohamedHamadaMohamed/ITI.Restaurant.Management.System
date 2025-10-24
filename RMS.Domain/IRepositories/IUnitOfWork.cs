@@ -9,7 +9,7 @@ namespace RMS.Domain.IRepositories
 {
     public interface IUnitOfWork
     {
-        IRepository<TEntity, TKey> Repository<TEntity, TKey>() where TEntity : BaseEntity<TKey>;
+        IRepository<TEntity, TKey> GetRepository<TEntity, TKey>() where TEntity : BaseEntity<TKey>;
         public int Commit();
     }
 }

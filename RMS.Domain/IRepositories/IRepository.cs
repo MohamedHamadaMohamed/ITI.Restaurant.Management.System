@@ -11,7 +11,7 @@ namespace RMS.Domain.IRepositories
         U : Update 
         D : Delete
         */
-        public void Create(TEntity entity);
+        public TEntity Create(TEntity entity);
         public void Update(TEntity entity);
 
         public void Delete(TEntity entity);
