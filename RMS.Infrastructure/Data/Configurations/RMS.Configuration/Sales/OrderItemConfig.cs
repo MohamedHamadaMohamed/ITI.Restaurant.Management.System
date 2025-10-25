@@ -9,20 +9,11 @@ using System.Threading.Tasks;
 
 namespace RMS.Infrastructure.Data.Configurations.RMS.Configuration.Sales
 {
-    public class OrderItemConfig : IEntityTypeConfiguration<OrderItem>
+    public class OrderItemConfig : BaseEntityConfig<OrderItem, int>
     {
-        public void Configure(EntityTypeBuilder<OrderItem> builder)
+        public override void Configure(EntityTypeBuilder<OrderItem> builder)
         {
-            builder.HasKey(o => o.Id);
-            builder.Property(o => o.CreatedBy)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(o => o.UpdatedBy)
-                .HasMaxLength(50);
-            builder.Property(o => o.DeletedBy)
-                .HasMaxLength(50);
-            builder.Property(o => o.CreatedAt)
-                ;
+            base.Configure(builder);
 
             builder.HasOne(oi => oi.Order)
                 .WithMany(o => o.OrderItems)

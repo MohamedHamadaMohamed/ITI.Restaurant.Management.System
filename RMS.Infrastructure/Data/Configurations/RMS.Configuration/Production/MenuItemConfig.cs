@@ -4,21 +4,12 @@ using RMS.Domain.Models.Production;
 
 namespace RMS.Infrastructure.Data.Configurations.RMS.Configuration.Production
 {
-    public class MenuItemConfig : IEntityTypeConfiguration<MenuItem>
+    public class MenuItemConfig : BaseEntityConfig<MenuItem,int>
     {
-        public void Configure(EntityTypeBuilder<MenuItem> builder)
+        public override void Configure(EntityTypeBuilder<MenuItem> builder)
         {
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.CreatedBy)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(c => c.UpdatedBy)
-                .HasMaxLength(50);
-            builder.Property(c => c.DeletedBy)
-                .HasMaxLength(50);
-            builder.Property(c => c.CreatedAt)
-               ;
-
+            base.Configure(builder);
+           
 
             builder.OwnsOne(c => c.Price, price =>
             {

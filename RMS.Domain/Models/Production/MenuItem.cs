@@ -9,6 +9,8 @@ namespace RMS.Domain.Models.Production
         public string Description { get; set; } = null!;
         public Money Price { get; set; } = null!;
         public double Discount { get; set; } = 0;
+
+        public string Image {  get; set; } = null!;
         public bool IsAvailable { get; set; } = true;
         public int DailyOrderCount { get; set; } = 0;
         public int PreparationTimeMinutes { get; set; }

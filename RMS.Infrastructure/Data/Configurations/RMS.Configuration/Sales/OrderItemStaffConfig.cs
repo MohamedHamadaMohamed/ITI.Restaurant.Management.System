@@ -6,7 +6,7 @@ namespace RMS.Infrastructure.Data.Configurations.RMS.Configuration.Sales
 {
     public class OrderItemStaffConfig : IEntityTypeConfiguration<OrderItemStaff>
     {
-        public void Configure(EntityTypeBuilder<OrderItemStaff> builder)
+        public  void Configure(EntityTypeBuilder<OrderItemStaff> builder)
         {
             builder.HasKey(orderStaff => new { orderStaff.StaffId, orderStaff.OrderItemId });
 

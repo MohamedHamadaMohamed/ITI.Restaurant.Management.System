@@ -1,4 +1,3 @@
-using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RMS.Applicaton.Layer.UseCases.Generics.Handlers.Queries;
@@ -22,7 +21,7 @@ namespace ITI.RMS.Presentation.Layer
 
 
             builder.Services.AddDbContext<ApplicationDbContext>
-            (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnention")));
+            (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()

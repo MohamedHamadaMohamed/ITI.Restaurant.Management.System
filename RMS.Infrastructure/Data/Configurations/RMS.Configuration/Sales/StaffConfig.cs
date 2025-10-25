@@ -1,28 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RMS.Domain.Models.Sales;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RMS.Infrastructure.Data.Configurations.RMS.Configuration.Sales
 {
-    public class StaffConfig : IEntityTypeConfiguration<Staff>
+    public class StaffConfig : BaseEntityConfig<Staff, int>
     {
-        public void Configure(EntityTypeBuilder<Staff> builder)
+        public override void Configure(EntityTypeBuilder<Staff> builder)
         {
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.CreatedBy)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(c => c.UpdatedBy)
-                .HasMaxLength(50);
-            builder.Property(c => c.DeletedBy)
-                .HasMaxLength(50);
-            builder.Property(c => c.CreatedAt)
-                ;
+            base.Configure(builder);
 
 
             builder.Property(c => c.Phone)

@@ -9,21 +9,11 @@ using System.Threading.Tasks;
 
 namespace RMS.Infrastructure.Data.Configurations.RMS.Configuration.Production
 {
-    public class CategoryConfig : IEntityTypeConfiguration<Category>
+    public class CategoryConfig : BaseEntityConfig<Category, int>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public override void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.CreatedBy)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(c => c.UpdatedBy)
-                .HasMaxLength(50);
-            builder.Property(c => c.DeletedBy)
-                .HasMaxLength(50);
-            builder.Property(c => c.CreatedAt)
-               ;
-
+            base.Configure(builder);
 
             builder.Property(c => c.Name)
                            .IsRequired()

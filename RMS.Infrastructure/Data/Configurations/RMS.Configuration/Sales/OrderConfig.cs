@@ -6,20 +6,11 @@ using RMS.Domain.Models.Sales;
 
 namespace RMS.Infrastructure.Data.Configurations.RMS.Configuration.Sales
 {
-    public class OrderConfig : IEntityTypeConfiguration<Order>
+    public class OrderConfig : BaseEntityConfig<Order, int>
     {
-        public void Configure(EntityTypeBuilder<Order> builder)
+        public override void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(o => o.Id);
-            builder.Property(o => o.CreatedBy)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(o => o.UpdatedBy)
-                .HasMaxLength(50);
-            builder.Property(o => o.DeletedBy)
-                .HasMaxLength(50);
-            builder.Property(o => o.CreatedAt)
-                ;
+            base.Configure(builder);
 
 
             var statusConverter = new ValueConverter<OrderStatus, string>(

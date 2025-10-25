@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace RMS.Domain.Models
 {
-    public class BaseEntity<TKey>
+    public abstract class BaseEntity<TKey>
     {
         public TKey Id { get; set; } = default!;
         public string CreatedBy { get; set; } = default!;
-        public string UpdatedBy { get; set;} = default!;
-        public string DeletedBy { get; set;} = default!;
+        public string? UpdatedBy { get; set;} 
+        public string? DeletedBy { get; set;} 
         public DateTime CreatedAt { get; set; } = default!;
-        public DateTime UpdatedAt { get; set;} = default;
-        public DateTime? DeletedAt { get; set; } = null;
+        public DateTime? UpdatedAt { get; set;} 
+        public DateTime? DeletedAt { get; set; } 
         public bool IsDeleted { get; set; } = false;
 
 

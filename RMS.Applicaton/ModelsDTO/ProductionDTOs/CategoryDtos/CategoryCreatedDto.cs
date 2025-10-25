@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace RMS.Applicaton.Layer.ModelsDTO.ProductionDTOs.CategoryDtos
 {
-    public class CategoryCreatedDto
+    public class CategoryCreatedDto : BaseEntityDto
     {
+       
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
-        public bool IsActive { get; set; } = true;
     }
 }
