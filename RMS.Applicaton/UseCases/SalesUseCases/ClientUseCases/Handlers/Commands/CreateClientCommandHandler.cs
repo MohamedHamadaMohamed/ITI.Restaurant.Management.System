@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using RMS.Applicaton.Layer.ModelsDTO.ProductionDTOs.ClientDtos;
 using RMS.Applicaton.Layer.UseCases.Generics.Handlers.Commands;
 using RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Commands;
 using RMS.Applicaton.Layer.UseCases.SalesUseCases.OrderUseCases.Commands;
@@ -7,13 +8,13 @@ using RMS.Domain.Models.Sales;
 
 namespace RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Handlers.Commands
 {
-    public class UpdateClientCommandHandler<TEntityDto> : UpdateCommandHandler<Client, int, TEntityDto>, IRequestHandler<UpdateClientCommand<TEntityDto>, bool>
+    public class CreateClientCommandHandler<TEntityDto> : CreateCommandHandler<Client, int, TEntityDto, ClientCreatedDto>, IRequestHandler<CreateClientCommand<TEntityDto>, ClientCreatedDto>
     {
-        public UpdateClientCommandHandler(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public CreateClientCommandHandler(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
 
-        public async Task<bool> Handle(UpdateClientCommand<TEntityDto> request, CancellationToken cancellationToken)
+        public async Task<ClientCreatedDto> Handle(CreateClientCommand<TEntityDto> request, CancellationToken cancellationToken)
         {
             return await base.Handle(request, cancellationToken);
         }

@@ -4,9 +4,9 @@ using RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Queries.AdminQu
 using RMS.Applicaton.Layer.UseCases.SalesUseCases.OrderUseCases.Queries.AdminQueries;
 using RMS.Domain.IRepositories;
 
-namespace RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Handlers.Queries.AdminQueryHandlers
+namespace RMS.Applicaton.Layer.UseCases.SalesUseCases.OrderUseCases.Handlers.Queries.AdminQueryHandlers
 {
-    public class CustomerGetAllClientsQueryHandler : GetAllClientsQueryHandler<AdminClientDto>, IRequestHandler<AdminGetAllClientsQuery, ICollection<AdminClientDto>>
+    public class CustomerGetAllClientsQueryHandler : GetAllOrdersQueryHandler<AdminClientDto>, IRequestHandler<AdminGetAllClientsQuery, ICollection<AdminClientDto>>
     {
         public CustomerGetAllClientsQueryHandler(IUnitOfWork unitOfWork) : base(unitOfWork)
         {

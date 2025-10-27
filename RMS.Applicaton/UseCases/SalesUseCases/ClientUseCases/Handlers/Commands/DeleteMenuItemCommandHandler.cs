@@ -1,19 +1,19 @@
 ﻿using MediatR;
 using RMS.Applicaton.Layer.UseCases.Generics.Handlers.Commands;
-using RMS.Applicaton.Layer.UseCases.ProductionUseCases.MenuItemUseCases.Commands;
 using RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Commands;
+using RMS.Applicaton.Layer.UseCases.SalesUseCases.OrderUseCases.Commands;
 using RMS.Domain.IRepositories;
-using RMS.Domain.Models.Production;
+using RMS.Domain.Models.Sales;
 
 namespace RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Handlers.Commands
 {
-    public class DeleteMenuItemCommandHandler : DeleteCommandHandler<MenuItem, int>, IRequestHandler<DeleteMenuItemCommand, bool>
+    public class DeleteClientCommandHandler : DeleteCommandHandler<Client, int>, IRequestHandler<DeleteClientCommand, bool>
     {
-        public DeleteMenuItemCommandHandler(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public DeleteClientCommandHandler(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
 
-        public async Task<bool> Handle(DeleteMenuItemCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteClientCommand request, CancellationToken cancellationToken)
         {
             return await base.Handle(request, cancellationToken);
 

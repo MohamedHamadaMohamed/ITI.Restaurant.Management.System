@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using RMS.Applicaton.Layer.UseCases.ProductionUseCases.MenuItemUseCases.Queries.AdminQueries;
-using RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Queries.AdminQueries;
 using RMS.Domain.IRepositories;
 using RMS.Presentation.Layer.Areas.Admin.Models;
 

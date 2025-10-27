@@ -1,8 +1,9 @@
-﻿using RMS.Presentation.Layer.Areas.Customer.Models;
+﻿using RMS.Applicaton.Layer.UseCases.SalesUseCases.OrderUseCases.Queries;
+using RMS.Presentation.Layer.Areas.Customer.Models;
 
 namespace RMS.Applicaton.Layer.UseCases.SalesUseCases.ClientUseCases.Queries.CustomerQueries
 {
-    public class CustomerGetClientByIdQuery : GetClientByIdQuery<CustomerClientDto>
+    public class CustomerGetClientByIdQuery : GetOrderByIdQuery<CustomerClientDto>
     {
         public CustomerGetClientByIdQuery(int id) : base(id)
         {
